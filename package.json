@@ -1,6 +1,6 @@
 {
   "name": "react-native-dynamic-icon-change",
-  "version": "0.1.0",
+  "version": "1.0.8",
   "description": "dddd",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
