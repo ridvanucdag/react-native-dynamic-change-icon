@@ -210,7 +210,7 @@
     "version": "0.45.5"
   },
   "react-native": "src/index.tsx",
-  "types": "lib/typescript/src/index.d.ts",
+  "types": "lib/typescript/commonjs/src/index.d.ts",
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
