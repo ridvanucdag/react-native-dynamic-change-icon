@@ -1,9 +1,28 @@
-import DynamicIconChange from './NativeDynamicIconChange';
+import { NativeModules, Platform } from 'react-native';
+import type { Spec } from './NativeDynamicIconChange';
 
-export function changeAppIcon(iconName?: string): Promise<string> {
-  return DynamicIconChange.changeAppIcon(iconName);
-}
+const LINKING_ERROR =
+  `The package 'react-native-dynamic-icon-change' doesn't seem to be linked. Make sure: \n\n` +
+  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
+  '- You rebuilt the app after installing the package\n' +
+  '- You are not using Expo Go\n';
 
-export function getAppIcon(): Promise<string> {
-  return DynamicIconChange.getAppIcon();
-}
+// @ts-expect-error
+const isTurboModuleEnabled = global.__turboModuleProxy != null;
+
+const DynamicIconChangeModule = isTurboModuleEnabled
+  ? require('./NativeDynamicIconChange').default
+  : NativeModules.DynamicIconChange;
+
+const DynamicIconChange: Spec = DynamicIconChangeModule
+  ? DynamicIconChangeModule
+  : new Proxy(
+      {},
+      {
+        get() {
+          throw new Error(LINKING_ERROR);
+        },
+      }
+    );
+
+export const { changeAppIcon, getAppIcon } = DynamicIconChange;

@@ -32,6 +32,42 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+  <key>CFBundleIcons</key>
+<dict>
+  <key>CFBundlePrimaryIcon</key>
+  <dict>
+    <key>CFBundleIconFiles</key>
+    <array>
+      <string>AppIcon</string>
+    </array>
+    <key>UIPrerenderedIcon</key>
+    <false/>
+  </dict>
+  <key>CFBundleAlternateIcons</key>
+  <dict>
+    <key>AppIcon2</key>
+    <dict>
+      <key>CFBundleIconFiles</key>
+      <array>
+        <string>AppIcon2</string>
+      </array>
+    </dict>
+    <key>AppIcon3</key>
+    <dict>
+      <key>CFBundleIconFiles</key>
+      <array>
+        <string>AppIcon3</string>
+      </array>
+    </dict>
+    <key>AppIcon4</key>
+    <dict>
+      <key>CFBundleIconFiles</key>
+      <array>
+        <string>AppIcon4</string>
+      </array>
+    </dict>
+  </dict>
+</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>
