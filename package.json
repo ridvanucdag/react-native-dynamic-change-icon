@@ -47,6 +47,13 @@
   },
   "keywords": [
     "react-native",
+    "icon",
+    "change-icon",
+    "dynamic-icon",
+    "android-dynamic-icon",
+    "android-change-icon",
+    "ios-dynamic-icon",
+    "ios-change-icon",
     "ios",
     "android"
   ],
@@ -186,10 +193,6 @@
     "name": "RNDynamicIconChangeSpec",
     "type": "modules",
     "jsSrcsDir": "src",
-    "outputDir": {
-      "ios": "ios/generated",
-      "android": "android/generated"
-    },
     "android": {
       "javaPackageName": "com.dynamiciconchange"
     },

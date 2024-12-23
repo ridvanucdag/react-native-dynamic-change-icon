@@ -1,20 +1,33 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-dynamic-icon-change';
+import React, { useEffect, useState } from "react";
+import { View, Button, Text } from "react-native";
+import { changeAppIcon, getAppIcon } from "react-native-dynamic-icon-change";
 
-const result = multiply(3, 7);
+const App = () => {
+  const [currentIcon, setCurrentIcon] = useState("");
 
-export default function App() {
+  useEffect(() => {
+    getAppIcon().then(setCurrentIcon).catch(console.error);
+  }, []);
+
+  const switchIcon = (iconName) => {
+    changeAppIcon(iconName)
+      .then(() => setCurrentIcon(iconName))
+      .catch(console.error);
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View>
+      <Text>Current Icon: {currentIcon}</Text>
+      <Button
+        title="Switch to Alternate Icon"
+        onPress={() => switchIcon("YourIconName")}
+      />
+      <Button
+        title="Revert to Default Icon"
+        onPress={() => switchIcon("Default")}
+      />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
